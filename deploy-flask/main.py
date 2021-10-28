@@ -5,6 +5,7 @@ import io
 import json
 
 import torch
+import torch.nn as nn
 from torchvision import models
 import torchvision.transforms as transforms
 from PIL import Image
@@ -29,12 +30,20 @@ def transform_image(image_bytes):
     return my_transforms(image).unsqueeze(0)
 
 
-def get_prediction(image_bytes):
+def get_prediction(image_bytes, max_results=2):
     tensor = transform_image(image_bytes=image_bytes)
     outputs = model.forward(tensor)
-    _, y_hat = outputs.max(1)
-    predicted_idx = str(y_hat.item())
-    return imagenet_class_index[predicted_idx]
+    #_, y_hat = outputs.max(1)
+    #predicted_idx = str(y_hat.item())
+    #return imagenet_class_index[predicted_idx]
+    values, preds = torch.topk(outputs, max_results, dim=1)
+    sm = nn.functional.softmax(values, dim=1)
+    results = []
+    percentages = []
+    for pred, perc in zip(preds[0], sm[0]):
+        percentages.append(perc)
+        results.append(imagenet_class_index[str(pred.item())])
+    return results, percentages
 
 
 @app.route('/predict', methods=['POST'])
@@ -42,8 +51,12 @@ def predict():
     if request.method == 'POST':
         file = request.files['file']
         img_bytes = file.read()
-        class_id, class_name = get_prediction(image_bytes=img_bytes)
-        return jsonify({'class_id': class_id, 'class_name': class_name})
+        results, percentages = get_prediction(image_bytes=img_bytes)
+        jslist = [
+            {'class_id': results[0][0], 'percentage': '{:.2f}'.format(percentages[0] * 100)},
+            {'class_id': results[1][0], 'percentage': '{:.2f}'.format(percentages[1] * 100)}
+        ]
+        return json.dumps(jslist)
 
 
 if __name__ == '__main__':
