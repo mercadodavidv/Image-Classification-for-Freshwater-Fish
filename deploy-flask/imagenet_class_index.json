@@ -1,27 +1,97 @@
 {
     "0": [
+        "black_bullhead",
+        "Black Bullhead",
+        "Ameiurus melas"
+    ],
+    "1": [
+        "black_crappie",
+        "Black Crappie",
+        "Pomoxis nigromaculatus"
+    ],
+    "2": [
+        "blue_catfish",
+        "Blue Catfish",
+        "Ictalurus furcatus"
+    ],
+    "3": [
         "bluegill",
         "Bluegill",
         "Lepomis macrochirus"
     ],
-    "1": [
+    "4": [
         "channel_catfish",
         "Channel Catfish",
         "Ictalurus punctatus"
     ],
-    "2": [
+    "5": [
+        "common_carp",
+        "Common Carp",
+        "Cyprinus carpio"
+    ],
+    "6": [
+        "freshwater_drum",
+        "Freshwater Drum",
+        "Aplodinotus grunniens"
+    ],
+    "7": [
+        "lake_trout",
+        "Lake Trout",
+        "Salvelinus namaycush"
+    ],
+    "8": [
         "largemouth_bass",
         "Largemouth Bass",
         "Micropterus salmoides"
     ],
-    "3": [
+    "9": [
+        "northern_pike",
+        "Northern Pike",
+        "Esox lucius"
+    ],
+    "10": [
+        "rainbow_trout",
+        "Rainbow Trout",
+        "Oncorhynchus mykiss"
+    ],
+    "11": [
+        "rock_bass",
+        "Rock Bass",
+        "Ambloplites rupestris"
+    ],
+    "12": [
+        "smallmouth_bass",
+        "Smallmouth Bass",
+        "Micropterus dolomieu"
+    ],
+    "13": [
+        "spotted_bass",
+        "Spotted Bass",
+        "Micropterus punctulatus"
+    ],
+    "14": [
+        "striped_bass",
+        "Striped Bass",
+        "Morone saxatilis"
+    ],
+    "15": [
+        "walleye",
+        "Walleye",
+        "Sander vitreus"
+    ],
+    "16": [
         "white_bass",
         "White Bass",
         "Morone chrysops"
     ],
-    "4": [
+    "17": [
         "white_crappie",
         "White Crappie",
         "Pomoxis annularis"
+    ],
+    "18": [
+        "yellow_perch",
+        "Yellow Perch",
+        "Perca flavescens"
     ]
 }
